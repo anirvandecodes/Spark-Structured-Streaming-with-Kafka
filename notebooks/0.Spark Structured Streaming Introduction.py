@@ -1,11 +1,12 @@
 # Databricks notebook source
+import os
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, window, count
 from pyspark.sql.types import StructType, StructField, StringType, FloatType, LongType, TimestampType
 
 
 # Kafka configuration
-kafka_bootstrap_servers = 'pkc-9q8rv.ap-south-2.aws.confluent.cloud:9092'
+kafka_bootstrap_servers = os.getenv("KAFKA_BROKER")
 kafka_topic = 'my_first_topic'
 
 # Kafka Consumer settings for Confluent Cloud
